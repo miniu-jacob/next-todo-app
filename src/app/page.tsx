@@ -16,8 +16,8 @@ export default function Home() {
 
     // 날짜와 시간 상태 관리
     // 브라우저 타임존의 현재 날짜
-    const [currentDate, setCurrentDate] = useState(DateTime.local());
-    const [currentTime, setCurrentTime] = useState(currentDate.toFormat('HH:mm:ss'));
+    const [currentDate, setCurrentDate] = useState<DateTime | null>(null);
+    const [currentTime, setCurrentTime] = useState('');
 
     useEffect(() => {
         if (notification) {
@@ -45,14 +45,14 @@ export default function Home() {
             <div className='w-[400px] h-24 flex p-8 items-center justify-between bg-white rounded-t-xl '>
                 {/* TOP */}
                 <div className='flex gap-2'>
-                    <h1 className='text-4xl font-semibold'>{currentDate.toFormat('dd')}</h1>
-                    <div className='flex flex-col text-sm font-semibold '>
-                        <div className='font-sans'>{currentDate.toFormat('MMM').toUpperCase()}</div>
-                        <div className='font-sans'>{currentDate.toFormat('yyyy')}</div>
+                    <h1 className='text-4xl font-semibold font-rix'>{currentDate ? currentDate.toFormat('dd') : ''}</h1>
+                    <div className='flex flex-col text-sm font-semibold font-rix '>
+                        <div className='font-rix'>{currentDate ? currentDate.toFormat('MMM').toUpperCase() : ''}</div>
+                        <div className='font-rix'>{currentDate ? currentDate.toFormat('yyyy') : ''}</div>
                     </div>
                 </div>
                 <h2 className='text-2xl font-rix'>{currentTime}</h2>
-                <h3 className='text-md font-semibold font-sans'>{currentDate.toFormat('EEEE')}</h3>
+                <h3 className='text-md font-semibold font-rix'>{currentDate ? currentDate.toFormat('EEEE') : ''}</h3>
             </div>
             {/* MAIN */}
             <div className='w-[400px] flex flex-col p-2 items-center justify-between bg-white h-[calc(100vh-142px)]'>

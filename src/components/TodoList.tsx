@@ -11,8 +11,8 @@ const TodoList = () => {
                 taskList.map((task, index: number) => (
                     <div className='flex items-center justify-between w-full gap-4' key={index}>
                         <h1
-                            className={`py-2 px-4  w-full rounded-lg
-                            ${task.isCompleted === true ? 'bg-gray-200 line-through text-gray-400 ' : ''}
+                            className={`py-2 px-4  w-full rounded-lg font-rix text-xl
+                            ${task.isCompleted === true ? 'bg-gray-200 line-through text-gray-400  ' : ''}
                             `}
                         >
                             {task.title}
